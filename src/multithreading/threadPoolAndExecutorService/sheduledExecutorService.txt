@@ -1,0 +1,6 @@
+ScheduleExecutotService - мы используем тогда, когда хотим установить расписание на запуск тредов из пула.
+Данный пул создается, используя factory метод класса Executors:
+
+Executors.newScheduledThreadPool(int count);
+
+Методы: schedule (расписание), scheduleAtFixedRate, scheduleWithFixedDelay.
