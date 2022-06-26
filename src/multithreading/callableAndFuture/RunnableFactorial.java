@@ -2,6 +2,7 @@ package multithreading.callableAndFuture;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 public class RunnableFactorial {
@@ -9,8 +10,11 @@ public class RunnableFactorial {
 
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
-        Factorial factorial = new Factorial(6);
-        executorService.execute(factorial);
+        Factorial factorial = new Factorial(4);
+//        executorService.execute(factorial);
+        //метод submit() мжно испльзовать и с runnable, это нужноо для того,
+        // чтобы получить объект типа future и использовать его методы, например isDone()
+        Future future = executorService.submit(factorial);
         executorService.shutdown();
         executorService.awaitTermination(10, TimeUnit.SECONDS);
         System.out.println(factorialResult);

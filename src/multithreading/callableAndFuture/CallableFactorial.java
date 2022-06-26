@@ -7,16 +7,22 @@ public class CallableFactorial {
 
     public static void main(String[] args) {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
-        Factorial2 factorial2 = new Factorial2(5);
+        Factorial2 factorial2 = new Factorial2(4);
         //метод submit, это аналог метода  execute, но он принимает в качестве аргумента не Runnable, а Callable
         //и возвращает результат нашего таска. Результат хранится в бъекте типа Future
         Future<Integer> future = executorService.submit(factorial2);
+
         try {
+            //метод isDone() пзвляет узнать, выполнен ли наш task
+            System.out.println(future.isDone());
+            //на строке ниже поток main будет заблокирован и будет ожидать выполнение нашего задания.
+            //после тогоо, как задание выполнится, main прдолжит работу
             factorialResult = future.get();
+            System.out.println(future.isDone());
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
-            System.out.println(e.getCause());
+            System.err.println(e.getCause());
         } finally {
             executorService.shutdown();
         }
@@ -24,13 +30,16 @@ public class CallableFactorial {
     }
 
 }
+
 //Интерфейс Callable - это аналог интерфейса Runnable, с разницей в том, что Callable может выбрасывать исключение,
 // а метод call(аналог метода run), имеет returnType.
 class Factorial2 implements Callable<Integer> {
     int f;
+
     public Factorial2(int f) {
         this.f = f;
     }
+
     @Override
     public Integer call() throws Exception {
         if (f <= 0) {
@@ -39,6 +48,7 @@ class Factorial2 implements Callable<Integer> {
         int result = 1;
         for (int i = 1; i <= f; i++) {
             result *= i;
+            Thread.sleep(100);
         }
         return result;
     }
