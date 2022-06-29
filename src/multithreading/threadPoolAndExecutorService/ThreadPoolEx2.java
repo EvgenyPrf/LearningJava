@@ -12,7 +12,7 @@ public class ThreadPoolEx2 {
 //        for (int i = 0; i < 10; i++) {
 //            scheduledExecutorService.execute(new RunnableIml2());
 //        }
-        /*метод schedule выполнит наши задания через пределённый период времени
+        /*метод schedule выполнит наши задания через определённый период времени
          * */
 //        scheduledExecutorService.schedule(new RunnableIml2(), 3, TimeUnit.SECONDS);
 
@@ -30,7 +30,7 @@ public class ThreadPoolEx2 {
         /* Thread1 <- task1
         Thread2 <- task2
          если Thread1 свбодился, а в execotorService поступает новый таск, то поток может быть переопределён.
-         Он возьмет на себя выполнение данноого таска, и новый поток не будет создан.
+         Он возьмет на себя выполнение данного таска, и новый поток не будет создан.
          Thread1 <- task3
          Если поток освободился, но в течение 60-ти сек он не получает новый таск, то он будет уничтожен.
         * */

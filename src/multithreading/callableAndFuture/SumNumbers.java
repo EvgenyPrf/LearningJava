@@ -48,5 +48,4 @@ class PartialSum implements Callable<Long>{
         System.out.println(Thread.currentThread().getName() + " Sum from " + from + " to " + to + " = " + localSum);
         return localSum;
     }
-
 }

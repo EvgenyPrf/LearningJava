@@ -13,10 +13,10 @@ public class CallableFactorial {
         Future<Integer> future = executorService.submit(factorial2);
 
         try {
-            //метод isDone() пзвляет узнать, выполнен ли наш task
+            //метод isDone() позвляет узнать, выполнен ли наш task
             System.out.println(future.isDone());
             //на строке ниже поток main будет заблокирован и будет ожидать выполнение нашего задания.
-            //после тогоо, как задание выполнится, main прдолжит работу
+            //после того, как задание выполнится, main продолжит работу
             factorialResult = future.get();
             System.out.println(future.isDone());
         } catch (InterruptedException e) {
