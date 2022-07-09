@@ -35,6 +35,10 @@ public class ThreadPoolEx2 {
          Если поток освободился, но в течение 60-ти сек он не получает новый таск, то он будет уничтожен.
         * */
         ExecutorService executorService = Executors.newCachedThreadPool();
+        for (int i = 0; i < 10; i++) {
+            executorService.execute(new RunnableIml2());
+        }
+        executorService.shutdown();
     }
 }
 

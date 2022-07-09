@@ -21,7 +21,6 @@ public class ArrayBlockingQueueEx2 {
         }).start();
 
         new Thread(() -> {
-            int i = 0;
             while (true){
                 try {
                     Integer j = arrayBlockingQueue.take();

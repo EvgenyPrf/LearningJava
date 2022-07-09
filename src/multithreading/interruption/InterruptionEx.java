@@ -1,3 +1,5 @@
+package multithreading.interruption;
+
 public class InterruptionEx {
   public static void main(String[] args) throws InterruptedException {
     System.out.println("main starts");
@@ -18,7 +20,7 @@ class InterruptedThread extends Thread {
     for (int i = 1; i <= 1000000000; i++) {
       if(isInterrupted()){
         System.out.println("Поток хотят прервать");
-        System.out.println("Мы убедились, что состояние всех объектоа нормальное и решили завершить работу потока");
+        System.out.println("Мы убедились, что состояние всех объектов нормальное и решили завершить работу потока");
         /*если на текущем методе вызвали метол interrupted(), то выходим из метода run и завершаем поток*/
         return;
       }

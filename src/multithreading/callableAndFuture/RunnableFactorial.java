@@ -12,7 +12,7 @@ public class RunnableFactorial {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         Factorial factorial = new Factorial(4);
 //        executorService.execute(factorial);
-        //метод submit() мжно испльзовать и с runnable, это нужноо для того,
+        //метод submit() можно использовать и с runnable, это нужно для того,
         // чтобы получить объект типа future и использовать его методы, например isDone()
         Future future = executorService.submit(factorial);
         executorService.shutdown();

@@ -1,3 +1,5 @@
+package multithreading.deadLock;
+
 public class Example1 {
 /*
 Ниже представлен пример deadlock'а. Поток 1 сначала захватывает монитор lock1, а потом пытается захватить монитор lock2.

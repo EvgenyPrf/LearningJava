@@ -1,3 +1,5 @@
+package multithreading.synchronizedCollections;
+
 import java.util.*;
 
 public class SynchronizedCollectionEx1{
@@ -8,7 +10,7 @@ public class SynchronizedCollectionEx1{
     }
     //ArrayList<Integer> target = new ArrayList<>();
     //пример создания синхронизированного ArrayList();
-    List<Integer> syncList = 
+    List<Integer> syncList =
       Collections.synchronizedList(new ArrayList<>());
     Runnable runnable = () -> {syncList.addAll(source);};
     Thread thread = new Thread(runnable);

@@ -9,11 +9,11 @@ public class CallableFactorial {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         Factorial2 factorial2 = new Factorial2(4);
         //метод submit, это аналог метода  execute, но он принимает в качестве аргумента не Runnable, а Callable
-        //и возвращает результат нашего таска. Результат хранится в бъекте типа Future
+        //и возвращает результат нашего таска. Результат хранится в объекте типа Future
         Future<Integer> future = executorService.submit(factorial2);
 
         try {
-            //метод isDone() позвляет узнать, выполнен ли наш task
+            //метод isDone() позволяет узнать, выполнен ли наш task
             System.out.println(future.isDone());
             //на строке ниже поток main будет заблокирован и будет ожидать выполнение нашего задания.
             //после того, как задание выполнится, main продолжит работу

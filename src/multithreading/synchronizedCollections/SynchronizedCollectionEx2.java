@@ -1,3 +1,5 @@
+package multithreading.synchronizedCollections;
+
 import java.util.*;
 
 public class SynchronizedCollectionEx2 {
